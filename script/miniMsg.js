@@ -3,7 +3,9 @@ var MiniMsg = function (ops) {
    * ops:{
    *  content:'',
    *  type:'', warning / error / success
-   *  direction:'' top-left / top-right / bottom-left / bottom-right
+   *  direction:'', top-left / top-right / bottom-left / bottom-right
+   *  temp:true/false, 是否是临时弹出框，如果是临时框则animation之后立即销毁
+   *  showTime:1 显示时间，这里的数字表示秒数，默认为1秒，即弹出框弹出后立即回去
    * }
    *
    */
@@ -12,7 +14,8 @@ var MiniMsg = function (ops) {
     type: 'success',
     direction: 'top-right',
     container: document.body,//要求为一个dom
-    temp:false
+    temp:false,
+    showTime:2
   };
   $.extend(this, defaults, ops);
   this.init();
@@ -93,14 +96,14 @@ MiniMsg.prototype = {
         if(typeof callback==='function'){
           setTimeout(function(){
             callback();
-          },1000);
+          },1000*that.showTime);
         }
         if(that.temp){
           setTimeout(function(){
             that.destroy();
-          },1000)
+          },1000*that.showTime)
         }
-      },1000)
+      },1000*that.showTime)
     })
 
   }
