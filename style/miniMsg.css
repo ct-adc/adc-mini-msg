@@ -1,0 +1,39 @@
+.miniMsg {
+  padding: 10px 20px;
+  border-radius: 5px;
+  -webkit-transition: right 1s, left 1s;
+  transition: right 1s, left 1s;
+  z-index: 9999; }
+
+.miniMsg-success {
+  color: #3c763d;
+  background-color: #dff0d8; }
+
+.miniMsg-warning {
+  background-color: #fcf8e3;
+  color: #8a6d3b; }
+
+.miniMsg-error {
+  background-color: #f2dede;
+  color: #a94442; }
+
+.miniMsg {
+  position: fixed; }
+
+.miniMsg-top {
+  top: 0; }
+
+.miniMsg-left {
+  left: 0; }
+
+.miniMsg-right {
+  right: 0; }
+
+.miniMsg-bottom {
+  bottom: 0; }
+
+.miniMsg-bottom-right {
+  bottom: 0;
+  right: 0; }
+
+/*# sourceMappingURL=miniMsg.css.map */
