@@ -12,7 +12,7 @@ var MiniMsg = function (ops) {
     type: 'success',
     direction: 'top-right',
     container: document.body,//要求为一个dom
-    temp:true
+    temp:false
   };
   $.extend(this, defaults, ops);
   this.init();
