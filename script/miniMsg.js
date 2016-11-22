@@ -15,7 +15,7 @@ var MiniMsg = function (ops) {
     direction: 'top-right',
     container: document.body,//要求为一个dom
     temp:false,
-    showTime:2
+    showTime:1
   };
   $.extend(this, defaults, ops);
   this.init();
