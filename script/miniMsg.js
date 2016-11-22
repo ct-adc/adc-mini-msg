@@ -11,7 +11,8 @@ var MiniMsg = function (ops) {
     content: '',
     type: 'success',
     direction: 'top-right',
-    container: document.body //要求为一个dom
+    container: document.body,//要求为一个dom
+    temp:true
   };
   $.extend(this, defaults, ops);
   this.init();
@@ -92,7 +93,12 @@ MiniMsg.prototype = {
         if(typeof callback==='function'){
           setTimeout(function(){
             callback();
-          });
+          },1000);
+        }
+        if(that.temp){
+          setTimeout(function(){
+            that.destroy();
+          },1000)
         }
       },1000)
     })
