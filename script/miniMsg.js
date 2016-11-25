@@ -13,7 +13,7 @@ var MiniMsg = function (ops) {
     content: '',
     type: 'info',
     container: document.body,//要求为一个dom
-    duration:1,
+    duration:2,
     top:16
   };
   $.extend(this, defaults, ops);
@@ -104,7 +104,7 @@ MiniMsg.prototype = {
             callback();
             that._destroy();
           }
-        },300+1000*(that.duration));
+        },300);
       },300+1000*(that.duration));
     },300)
 
