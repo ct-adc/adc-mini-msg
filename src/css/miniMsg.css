@@ -4,7 +4,7 @@
   transition: top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   font-size: 12px;
   position: absolute;
-  z-index: 1010;
+  z-index: 9999;
   width: 100%;
   top: -9999px;
   left: 0;

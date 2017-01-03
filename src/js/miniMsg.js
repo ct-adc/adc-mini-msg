@@ -1,18 +1,18 @@
+/**
+ * 创建一个弱提示框的对象
+ * @param {Object} ops
+ * @param {string} ops.content 提示框的内容
+ * @param {string} ops.type "warning" | "error" | "success"
+ * @param {Object} ops.container dom节点
+ * @param {string} ops.duration 显示时间,单位:毫秒
+ * @constructor
+ */
+
 var MiniMsg = function (ops) {
-  /**
-   * ops:{
-   *  content:'',
-   *  type:'', warning / error / success
-   *  direction:'', top-left / top-right / bottom-left / bottom-right
-   *  temp:true/false, 是否是临时弹出框，如果是临时框则animation之后立即销毁
-   *  duration:0 显示时间，这里的数字表示秒数
-   * }
-   *
-   */
   var defaults = {
     content: '',
     type: 'info',
-    container: document.body,//要求为一个dom
+    container: document.body,
     duration:2,
     top:16
   };
@@ -34,13 +34,13 @@ MiniMsg.prototype = {
     error: 'glyphicon-remove-circle',
     info:'glyphicon-info-sign'
   },
+  /**
+   * 设置msgBox的样式来显示/隐藏它
+   * @param {string} showOrHide "show" | "hide"
+   */
   setBoxStyle: function (showOrHide) {
-    /**
-     * 设置msgBox的样式来显示/隐藏它
-     */
     var style = {},
       miniMsgHeight;
-
     if(showOrHide==='show'){
       style.top = this.top+'px';
     }else{
