@@ -92,8 +92,11 @@ MiniMsg.prototype = {
     //销毁
     this.msgBox.remove();
   },
+  /**
+   * 执行动画
+   * @param {Function} callback 执行完之后的回调函数
+   */
   animation:function(callback){
-    //进行动画效果
     var that=this;
     setTimeout(function(){
       that.show();
