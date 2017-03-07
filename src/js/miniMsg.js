@@ -105,8 +105,8 @@ MiniMsg.prototype = {
         setTimeout(function(){
           if(typeof callback==='function'){
             callback();
-            that._destroy();
           }
+          that._destroy();
         },300);
       },300+1000*(that.duration));
     },300)
