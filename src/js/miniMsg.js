@@ -54,11 +54,9 @@ MiniMsg.prototype = {
     //  根据type设置它的样式
     var html='<div class="mini-msg">' +
         '<div class="mini-msg-notice">' +
-        '<div class="mini-msg-notice-content">' +
-        '<div class="'+this.classForType[this.type]+'">' +
+        '<div class="mini-msg-notice-content '+this.classForType[this.type]+'">' +
         '<i class="glyphicon '+this.iconForType[this.type]+'"></i>' +
-        '<div>'+this.content+'</span>' +
-        '</div>' +
+        this.content+
         '</div>' +
         '</div>' +
         '</div>',
@@ -110,6 +108,5 @@ MiniMsg.prototype = {
         },300);
       },300+1000*(that.duration));
     },300)
-
   }
 };

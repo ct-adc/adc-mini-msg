@@ -1,0 +1,19 @@
+{
+  "name": "ct-adc-mini-msg",
+  "version": "1.5.0",
+  "description": "",
+  "main": "src/js/miniMsg-umd.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ct-adc/adc-mini-msg.git"
+  },
+  "author": "rubyisapm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ct-adc/adc-mini-msg/issues"
+  },
+  "homepage": "https://github.com/ct-adc/adc-mini-msg#readme"
+}
