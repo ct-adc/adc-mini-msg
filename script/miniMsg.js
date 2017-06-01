@@ -5,17 +5,16 @@ var MiniMsg = function (ops) {
    *  type:'', warning / error / success
    *  direction:'', top-left / top-right / bottom-left / bottom-right
    *  temp:true/false, 是否是临时弹出框，如果是临时框则animation之后立即销毁
-   *  showTime:1 显示时间，这里的数字表示秒数，默认为1秒，即弹出框弹出后立即回去
+   *  duration:0 显示时间，这里的数字表示秒数
    * }
    *
    */
   var defaults = {
     content: '',
-    type: 'success',
-    direction: 'top-right',
+    type: 'info',
     container: document.body,//要求为一个dom
-    temp:false,
-    showTime:1
+    duration:2,
+    top:16
   };
   $.extend(this, defaults, ops);
   this.init();
@@ -24,37 +23,46 @@ var MiniMsg = function (ops) {
 MiniMsg.prototype = {
   constructor: MiniMsg,
   classForType: {
-    success: 'miniMsg-success',
-    warning: 'miniMsg-warning',
-    error: 'miniMsg-error'
+    success: 'mini-msg-success',
+    warning: 'mini-msg-warning',
+    error: 'mini-msg-error',
+    info:'mini-msg-info'
   },
-  classForDirection: {
-    'top-left': 'miniMsg-top',
-    'top-right': 'miniMsg-top',
-    'bottom-left': 'miniMsg-bottom',
-    'bottom-right': 'miniMsg-bottom'
+  iconForType:{
+    success: 'glyphicon-ok-sign',
+    warning: 'glyphicon-exclamation-sign',
+    error: 'glyphicon-remove-circle',
+    info:'glyphicon-info-sign'
   },
   setBoxStyle: function (showOrHide) {
     /**
      * 设置msgBox的样式来显示/隐藏它
      */
-    var leftOrRight = this.direction.split('-')[1],
-      style = {},
-      miniMsgWidth;
+    var style = {},
+      miniMsgHeight;
 
     if(showOrHide==='show'){
-      style[leftOrRight] = 0;
+      style.top = this.top+'px';
     }else{
-      miniMsgWidth=this.msgBox.outerWidth();
-      style[leftOrRight] = 0 - miniMsgWidth;
+      miniMsgHeight=this.msgBox.find('.mini-msg-notice').outerHeight();
+      style.top = 0 - miniMsgHeight-this.top;
     }
     this.msgBox.css(style);
   },
   init: function () {
     //  生成一个dom，并插入到页面中
     //  根据type设置它的样式
-    var classes = ['miniMsg', this.classForType[this.type], this.classForDirection[this.direction]].join(' '),
-      $miniMsg = $('<div class="' + classes + '" style="visibility:hidden">' + this.content + '</div>'),
+    var html='<div class="mini-msg">' +
+        '<div class="mini-msg-notice">' +
+        '<div class="mini-msg-notice-content">' +
+        '<div class="'+this.classForType[this.type]+'">' +
+        '<i class="glyphicon '+this.iconForType[this.type]+'"></i>' +
+        '<div>'+this.content+'</span>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>',
+      $miniMsg = $(html),
       styleForContainer;
     $(this.container).append($miniMsg);
 
@@ -71,8 +79,6 @@ MiniMsg.prototype = {
     $(this.container).css(styleForContainer);
     this.msgBox = $miniMsg;
     this.setBoxStyle('hide');
-    this.msgBox.css('transition','right 1s, left 1s');
-    this.msgBox.css('visibility','visible');
   },
   show: function () {
     //显示
@@ -82,7 +88,7 @@ MiniMsg.prototype = {
     //隐藏
     this.setBoxStyle('hide');
   },
-  destroy: function () {
+  _destroy: function () {
     //销毁
     this.msgBox.remove();
   },
@@ -93,18 +99,14 @@ MiniMsg.prototype = {
       that.show();
       setTimeout(function(){
         that.hide();
-        if(typeof callback==='function'){
-          setTimeout(function(){
+        setTimeout(function(){
+          if(typeof callback==='function'){
             callback();
-          },1000*that.showTime);
-        }
-        if(that.temp){
-          setTimeout(function(){
-            that.destroy();
-          },1000*that.showTime)
-        }
-      },1000*that.showTime)
-    })
+            that._destroy();
+          }
+        },300);
+      },300+1000*(that.duration));
+    },300)
 
   }
 };
