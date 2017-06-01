@@ -8,8 +8,8 @@
 </head>
 <body>
 <div class="modal" style="display:block;">
-    <div class="modal-dialog" id="div">
-        <div class="modal-content">
+    <div class="modal-dialog">
+        <div class="modal-content" id="div">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">eefe</h4>
@@ -31,7 +31,8 @@
     var miniMsg=new MiniMsg({
         content:'操作成功，将为您刷新页面...',
         container:document.getElementById('div'),
-        type:'success'
+        type:'success',
+        duration:1
     });
     miniMsg.animation();
 

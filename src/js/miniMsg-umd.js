@@ -106,18 +106,18 @@
      */
     animation: function (callback) {
       var that = this;
-      setTimeout(function () {
+      setTimeout(function(){
         that.show();
-        setTimeout(function () {
+        setTimeout(function(){
           that.hide();
-          setTimeout(function () {
-            if (typeof callback === 'function') {
+          setTimeout(function(){
+            if(typeof callback==='function'){
               callback();
-              that._destroy();
             }
-          }, 300);
-        }, 300 + 1000 * (that.duration));
-      }, 300)
+            that._destroy();
+          },300);
+        },300+1000*(that.duration));
+      },300)
 
     }
   };
