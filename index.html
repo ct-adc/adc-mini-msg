@@ -3,9 +3,8 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="./style/miniMsg.css"/>
+    <link rel="stylesheet" href="./src/css/miniMsg.css"/>
     <link href="http://static.uc108.com/cdn/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-
 </head>
 <body>
 <div class="modal" style="display:block;">
@@ -26,16 +25,22 @@
         </div>
     </div>
 </div>
-<script src="http://static.uc108.com/cdn/jquery/2.1.0/jquery.js"></script>
-<script src="./script/miniMsg.js"></script>
+<script src="http://static.tcy365.com/cdn/jquery/2.1.0/jquery.js"></script>
+<script src="./src/js/miniMsg.js"></script>
 <script>
     var miniMsg=new MiniMsg({
         content:'操作成功，将为您刷新页面...',
         container:document.getElementById('div'),
-        type:'success',
-        top:0
+        type:'success'
     });
-        miniMsg.animation();
+    miniMsg.animation();
+
+
+    var miniMsg2=new MiniMsg({
+        content:'操作成功，将为您刷新页面...',
+        type:'error'
+    });
+    miniMsg2.animation();
 
 
 </script>
