@@ -35,6 +35,7 @@
     font-size: 14px;
     position: absolute;
     top: 50%;
+    left: 14px;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
