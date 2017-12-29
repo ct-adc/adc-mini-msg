@@ -94,8 +94,11 @@
             //隐藏
             this.setBoxStyle('hide');
         },
-        _destroy: function() {
+        destroy: function() {
             //销毁
+            if (typeof this.timer !== 'undefined') {
+                clearTimeout(this.timer);
+            }
             this.msgBox.remove();
         },
         /**
@@ -104,7 +107,7 @@
          */
         animation: function(callback) {
             var that = this;
-            setTimeout(function() {
+            that.timer = setTimeout(function() {
                 that.show();
                 setTimeout(function() {
                     that.hide();
@@ -112,7 +115,7 @@
                         if (typeof callback === 'function') {
                             callback();
                         }
-                        that._destroy();
+                        that.destroy();
                     }, 300);
                 }, 300 + 1000 * (that.duration));
             }, 300)
