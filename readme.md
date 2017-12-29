@@ -53,6 +53,10 @@ top | 信息框容器顶部的最大高度 | Number | 非必填 | 16
 
 执行信息框动画，通过执行该方法来显示一个信息框。
 
+##### destroy
+
+
+
 ## 更新日志
 
 [更新日志](https://github.com/ct-adc/adc-mini-msg/blob/master/CHANGLOG.md)

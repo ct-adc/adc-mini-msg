@@ -20,7 +20,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default">确定</button>
-                <button type="button" class="btn btn-primary">取消</button>
+                <button type="button" class="btn btn-primary" id="cancel">取消</button>
             </div>
         </div>
     </div>
@@ -32,16 +32,19 @@
         content:'操作成功，将为您刷新页面...',
         container:document.getElementById('div'),
         type:'success',
-        duration:1
+        duration:5
     });
     miniMsg.animation();
-
-
-    var miniMsg2=new MiniMsg({
-        content:'操作成功，将为您刷新页面...',
-        type:'error'
+    $('#cancel').on('click', function(){
+        miniMsg.destroy();
     });
-    miniMsg2.animation();
+//
+//
+//    var miniMsg2=new MiniMsg({
+//        content:'操作成功，将为您刷新页面...',
+//        type:'error'
+//    });
+//    miniMsg2.animation();
 
 
 </script>
