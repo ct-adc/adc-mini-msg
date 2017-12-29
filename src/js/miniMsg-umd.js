@@ -118,7 +118,8 @@
                         that.destroy();
                     }, 300);
                 }, 300 + 1000 * (that.duration));
-            }, 300)
+            }, 300);
+            return this;
         }
     };
     return MiniMsg;
