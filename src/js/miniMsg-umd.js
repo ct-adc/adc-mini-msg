@@ -109,9 +109,9 @@
             var that = this;
             that.timer = setTimeout(function() {
                 that.show();
-                setTimeout(function() {
+                that.timer = setTimeout(function() {
                     that.hide();
-                    setTimeout(function() {
+                    that.timer = setTimeout(function() {
                         if (typeof callback === 'function') {
                             callback();
                         }
